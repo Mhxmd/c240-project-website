@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minimal Finance Dashboard</title>
+  <title>FinX Dashboard</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="app">
@@ -18,14 +23,14 @@
       </nav>
 
       <div class="side-footer">
-        <p class="muted">Minimal Finance Dashboard</p>
-        <p class="muted tiny">v1 • built by Boss</p>
+        <p class="muted"> Finance Dashboard</p>
+        <p class="muted tiny">v2 • built by Boss</p>
       </div>
     </aside>
 
-    <!-- Main -->
+    <!-- Main Page -->
     <main class="main">
-      <!-- Top summary cards -->
+      <!-- Summary Boxes -->
       <section class="summary">
         <div class="card">
           <p class="label">Balance</p>
@@ -41,9 +46,15 @@
         </div>
       </section>
 
+      <!-- Chart Section -->
+      <section class="chart-card card">
+        <h2>Spending Breakdown</h2>
+        <canvas id="chart" height="140"></canvas>
+      </section>
+
       <!-- Form + Transactions -->
       <section class="grid">
-        <!-- Add transaction form -->
+        <!-- Add Transaction -->
         <div class="card form-card">
           <h2>Add Transaction</h2>
           <form id="txForm">
@@ -62,7 +73,7 @@
 
             <div class="form-row">
               <label for="txCategory">Category</label>
-              <input id="txCategory" type="text" placeholder="e.g. Salary, Food, Grab" />
+              <input id="txCategory" type="text" placeholder="e.g. Salary, Grab, Food" />
             </div>
 
             <div class="form-row">
@@ -74,12 +85,13 @@
           </form>
         </div>
 
-        <!-- Transaction list -->
+        <!-- Transactions -->
         <div class="card table-card">
           <div class="table-header">
             <h2>Transactions</h2>
             <button id="clearAllBtn" class="ghost-btn">Clear All</button>
           </div>
+
           <div class="table-wrapper">
             <table>
               <thead>
@@ -92,17 +104,20 @@
                   <th></th>
                 </tr>
               </thead>
+
               <tbody id="txTableBody">
-                <!-- Rows injected by JS -->
+                <!-- Generated dynamically -->
               </tbody>
             </table>
             <p class="muted empty-state" id="emptyState">No transactions yet. Add one on the left.</p>
           </div>
         </div>
       </section>
+
     </main>
   </div>
 
-  <script src="js/script.js"></script>
+  <!-- Script Setup -->
+  <script src="js/script.js" defer></script>
 </body>
 </html>
